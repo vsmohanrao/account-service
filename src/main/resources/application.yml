@@ -1,0 +1,20 @@
+# Spring properties
+spring:
+  application:
+     name: accounts-service
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    home-page-url: /health
+    metadata-map:
+      instanceId: ${spring.application.instance_id:${server.port}}
+
+# HTTP Server
+server:
+  display-name: localhost
+  port: 2222   # HTTP (Tomcat) port
